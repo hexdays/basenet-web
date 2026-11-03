@@ -1,8 +1,11 @@
 ---
 import Hero from '../components/Hero.astro';
+import AboutUs from '../components/AboutUs.astro';
 import Layout from '../layouts/Layout.astro';
+import HeroImage from '../assets/data-centre.jpeg';
 ---
 
 <Layout>
-	<Hero />
+	<Hero image={HeroImage} />
+	<AboutUs />
 </Layout>
