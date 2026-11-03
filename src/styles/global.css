@@ -10,7 +10,9 @@
   --color-brand-50: #f3f7fb; /* hero background */
   --color-brand-75: #edf3f8; /* icon tile surface */
   --color-brand-100: #dfe6ed; /* muted section surface (About Us), card borders */
+  --color-brand-200: #bfcddb; /* muted text on navy (footer) */
   --color-brand-700: #284b7c; /* top-bar contact text */
+  --color-brand-800: #315373; /* dividers on navy (footer) */
   --color-brand-900: #003366; /* headings, primary actions */
   --color-accent: #4ea1ff; /* active / hover nav link */
   --color-nav: #fdfeff; /* nav link text on black */
@@ -24,6 +26,9 @@
   --text-heading--line-height: normal;
   --text-body: 1.25rem; /* 20px body */
   --text-body--line-height: 1.65;
+  --text-cta: 2.75rem; /* 44px call-to-action heading */
+  --text-cta--line-height: 1.15;
+  --text-cta--letter-spacing: -0.034em;
   --text-lead: 1.5rem; /* 24px intro paragraph */
   --text-lead--line-height: 1.65;
   --text-title: 1.25rem; /* 20px card title */

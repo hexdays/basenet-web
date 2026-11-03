@@ -1,6 +1,8 @@
 export const SITE_NAME = 'Basenet';
 
 export const COMPANY = {
+  legalName: 'BaseNET Technology Sdn Bhd',
+  tagline: 'Business-ready networking, virtualization and security solutions.',
   phone: {
     display: '+6038929 0000',
     href: 'tel:+60389290000',

@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import { Font } from "astro:assets";
 import Header from "../components/header/Header.astro";
+import Footer from "../components/footer/Footer.astro";
 import { SITE_NAME } from "../site.config";
 ---
 
@@ -16,7 +17,7 @@ import { SITE_NAME } from "../site.config";
 		<title>{SITE_NAME}</title>
 		<Font cssVariable="--font-inter" preload />
 	</head>
-	<body>
+	<body id="top">
 		<a
 			href="#main"
 			class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-black"
@@ -26,6 +27,17 @@ import { SITE_NAME } from "../site.config";
 		<main id="main">
 			<slot />
 		</main>
+		{
+			Astro.slots.has("cta") ? (
+				<Footer>
+					<Fragment slot="cta">
+						<slot name="cta" />
+					</Fragment>
+				</Footer>
+			) : (
+				<Footer />
+			)
+		}
 	</body>
 </html>
 

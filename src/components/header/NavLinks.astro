@@ -1,32 +1,8 @@
 ---
 import NavDropdown from './NavDropdown.astro';
-
-type NavItem = { label: string; href: string; children?: { label: string; href: string }[] };
-
-const links: NavItem[] = [
-  { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Our Solution', href: '/solution' },
-  { label: 'Brands', href: '/brands' },
-  { label: 'Contact Us', href: '/contact' },
-  { label: 'News', href: '/news' },
-  {
-    label: 'Staff',
-    href: '/staff',
-    children: [
-      { label: 'LMS', href: '/staff/lms' },
-      { label: 'HRMS', href: '/staff/hrms' },
-      { label: 'E-Car', href: '/staff/e-car' },
-      { label: 'Webmail', href: '/staff/webmail' },
-      { label: 'Cloud Data', href: '/staff/cloud-data' },
-      { label: 'Staff Directory', href: '/staff/directory' },
-    ],
-  },
-  { label: 'Training', href: '/training' },
-];
+import { NAV_LINKS as links, withBase } from '../../nav';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const withBase = (href: string) => `${base}${href}`;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const current = path.startsWith(base) ? path.slice(base.length) || '/' : path;
 const isActive = (href: string) =>
