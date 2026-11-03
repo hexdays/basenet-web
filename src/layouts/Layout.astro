@@ -1,7 +1,8 @@
 ---
-import '../styles/global.css';
-import Header from '../components/header/Header.astro';
-import { SITE_NAME } from '../site.config';
+import "../styles/global.css";
+import { Font } from "astro:assets";
+import Header from "../components/header/Header.astro";
+import { SITE_NAME } from "../site.config";
 ---
 
 <!doctype html>
@@ -13,6 +14,7 @@ import { SITE_NAME } from '../site.config';
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{SITE_NAME}</title>
+		<Font cssVariable="--font-inter" preload />
 	</head>
 	<body>
 		<a

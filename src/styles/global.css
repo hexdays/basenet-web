@@ -1,7 +1,27 @@
 @import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
+/* Design tokens, taken from the Figma file (website-baru-basenet). */
+/* Inter is loaded by Astro's Fonts API (astro.config.mjs + <Font /> in Layout) as --font-inter. */
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
 @theme {
-  --color-brand-50: #f4f8fc;
-  --color-brand-900: #0b3a6b;
+  /* Color */
+  --color-brand-50: #f3f7fb; /* hero background */
+  --color-brand-100: #dfe6ed; /* muted section surface (About Us) */
+  --color-brand-900: #003366; /* headings, primary actions */
+  --color-copy: #475569; /* body copy (slate-600) */
+
+  /* Typography */
+  --text-display: 3rem; /* 48px section heading */
+  --text-display--line-height: 1.2;
+  --text-heading: 2rem; /* 32px sub-heading */
+  --text-heading--line-height: normal;
+  --text-body: 1.25rem; /* 20px body */
+  --text-body--line-height: 1.65;
+
+  /* Layout */
+  --spacing-section: 4.5rem; /* 72px vertical section padding */
 }
