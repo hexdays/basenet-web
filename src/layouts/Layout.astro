@@ -1,3 +1,9 @@
+---
+import '../styles/global.css';
+import Header from '../components/header/Header.astro';
+import { SITE_NAME } from '../site.config';
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,10 +12,18 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{SITE_NAME}</title>
 	</head>
 	<body>
-		<slot />
+		<a
+			href="#main"
+			class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-white focus:px-4 focus:py-2 focus:text-black"
+			>Skip to main content</a
+		>
+		<Header />
+		<main id="main">
+			<slot />
+		</main>
 	</body>
 </html>
 
