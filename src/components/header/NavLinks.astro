@@ -25,23 +25,31 @@ const links: NavItem[] = [
   { label: 'Training', href: '/training' },
 ];
 
-const path = Astro.url.pathname;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const withBase = (href: string) => `${base}${href}`;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const current = path.startsWith(base) ? path.slice(base.length) || '/' : path;
 const isActive = (href: string) =>
-  href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`);
+  href === '/' ? current === '/' : current === href || current.startsWith(`${href}/`);
 ---
 
 <nav aria-label="Main">
-  <ul class="flex flex-wrap items-center gap-x-6 gap-y-2 text-lg font-medium">
+  <ul class="flex flex-wrap items-center gap-x-6 gap-y-1 text-base font-medium lg:text-xl xl:text-2xl">
     {
       links.map(({ label, href, children }) => (
         <li>
           {children ? (
-            <NavDropdown {label} id={`nav-${label.toLowerCase()}`} active={isActive(href)} items={children} />
+            <NavDropdown
+              {label}
+              id={`nav-${label.toLowerCase()}`}
+              active={isActive(href)}
+              items={children.map((c) => ({ ...c, href: withBase(c.href) }))}
+            />
           ) : (
             <a
-              {href}
+              href={withBase(href)}
               aria-current={isActive(href) ? 'page' : undefined}
-              class="text-white transition-colors hover:text-sky-400 aria-[current=page]:text-sky-400 aria-[current=page]:underline underline-offset-4"
+              class="block border-b-2 border-transparent py-3 text-nav transition-colors hover:text-accent aria-[current=page]:border-accent aria-[current=page]:font-semibold aria-[current=page]:text-accent motion-reduce:transition-none"
             >
               {label}
             </a>
