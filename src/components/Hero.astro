@@ -16,7 +16,7 @@ const {
   eyebrow = 'Built for business. Ready for what’s next.',
   title = 'Reliable IT Infrastructure & Solutions',
   description = 'Connect your people, power your operations and protect what matters with IT solutions built around your business.',
-  cta = { label: 'Get in Touch', href: '/contact' },
+  cta = { label: 'Get in Touch', href: `${import.meta.env.BASE_URL.replace(/\/$/, '')}/contact` },
   tags = ['Networking', 'Virtualization', 'Security'],
   image,
 } = Astro.props;
